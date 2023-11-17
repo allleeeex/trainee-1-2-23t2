@@ -12,7 +12,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import goodshitimg from '/src/assets/goodshitexplore.png';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 type ProfileBannerContainerProps = {

@@ -1,5 +1,5 @@
 import { PrimaryBtn } from '../styles/GlobalStyles';
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import logo from '/src/assets/goodshittrans.png';
 import { useNavigate } from 'react-router-dom';
 

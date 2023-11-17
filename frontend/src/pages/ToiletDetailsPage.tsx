@@ -14,7 +14,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import StarIcon from '@mui/icons-material/Star';
-import { Box, TableBody } from '@mui/material';
+import { Box } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -480,7 +480,7 @@ const ToiletDetails = () => {
 
     const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-    const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    const handleTabChange = (newValue: number) => {
         setTabValue(newValue);
     }
 
@@ -592,9 +592,11 @@ const ToiletDetails = () => {
                                     precision={1}
                                     getLabelText={getEnjoymentLabelText}
                                     onChange={(event, newValue) => {
+                                        console.log(event);
                                         setEnjoymentValue(newValue);
                                     }}
                                     onChangeActive={(event, newHover) => {
+                                        console.log(event);
                                         setEnjoymentHover(newHover);
                                     }}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
@@ -620,9 +622,11 @@ const ToiletDetails = () => {
                                     precision={1}
                                     getLabelText={getUsefulnessLabelText}
                                     onChange={(event, newValue) => {
+                                        console.log(event);
                                         setUsefulnessValue(newValue);
                                     }}
                                     onChangeActive={(event, newHover) => {
+                                        console.log(event);
                                         setUsefulnessHover(newHover);
                                     }}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
@@ -648,9 +652,11 @@ const ToiletDetails = () => {
                                     precision={1}
                                     getLabelText={getManageabilityLabelText}
                                     onChange={(event, newValue) => {
+                                        console.log(event);
                                         setManageabilityValue(newValue);
                                     }}
                                     onChangeActive={(event, newHover) => {
+                                        console.log(event);
                                         setManageabilityHover(newHover);
                                     }}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
@@ -703,6 +709,7 @@ const ToiletDetails = () => {
                 stringManageability,
                 reviewText
             });
+            console.log(response);
             return (
                 <div>successfully submitted</div>
             );
