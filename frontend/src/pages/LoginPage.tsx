@@ -134,9 +134,8 @@ const LoginPage = () => {
       window.history.back()
     } catch (rawError) {
       const err = rawError as AxiosError;
-      if (err != undefined) {
-        setErrorMessage(err.response.data.error);
-      }
+      // @ts-ignore
+      setErrorMessage(err.response.data.error);
       if (err.response && err.response.data) {
         console.error('Server responded with:', err.response.data);
         setError('Incorrect login data. Please try again.');

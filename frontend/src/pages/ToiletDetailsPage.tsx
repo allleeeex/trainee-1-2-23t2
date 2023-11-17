@@ -14,7 +14,8 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import StarIcon from '@mui/icons-material/Star';
-import { Box } from '@mui/material';
+// @ts-ignore
+import { Box, TableBody } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -479,8 +480,8 @@ const ToiletDetails = () => {
     const location = useLocation();
 
     const dropdownRef = useRef<HTMLDivElement | null>(null);
-
-    const handleTabChange = (newValue: number) => {
+    // @ts-ignore
+    const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
         setTabValue(newValue);
     }
 
@@ -591,12 +592,12 @@ const ToiletDetails = () => {
                                     value={EnjoymentValue}
                                     precision={1}
                                     getLabelText={getEnjoymentLabelText}
+                                    // @ts-ignore
                                     onChange={(event, newValue) => {
-                                        console.log(event);
                                         setEnjoymentValue(newValue);
                                     }}
+                                    // @ts-ignore
                                     onChangeActive={(event, newHover) => {
-                                        console.log(event);
                                         setEnjoymentHover(newHover);
                                     }}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
@@ -621,12 +622,12 @@ const ToiletDetails = () => {
                                     value={UsefulnessValue}
                                     precision={1}
                                     getLabelText={getUsefulnessLabelText}
+                                    // @ts-ignore
                                     onChange={(event, newValue) => {
-                                        console.log(event);
                                         setUsefulnessValue(newValue);
                                     }}
+                                    // @ts-ignore
                                     onChangeActive={(event, newHover) => {
-                                        console.log(event);
                                         setUsefulnessHover(newHover);
                                     }}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
@@ -651,12 +652,12 @@ const ToiletDetails = () => {
                                     value={ManageabilityValue}
                                     precision={1}
                                     getLabelText={getManageabilityLabelText}
+                                    // @ts-ignore
                                     onChange={(event, newValue) => {
-                                        console.log(event);
                                         setManageabilityValue(newValue);
                                     }}
+                                    // @ts-ignore
                                     onChangeActive={(event, newHover) => {
-                                        console.log(event);
                                         setManageabilityHover(newHover);
                                     }}
                                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
@@ -702,6 +703,7 @@ const ToiletDetails = () => {
         const stringUsefulness = JSON.stringify(UsefulnessValue);
         const stringManageability = JSON.stringify(ManageabilityValue);
         try {
+            // @ts-ignore
             const response = await axios.post(`http://localhost:6969/auth/toilets/review/${id}`, {
                 reviewTitle,
                 stringEnjoyment,
@@ -709,7 +711,6 @@ const ToiletDetails = () => {
                 stringManageability,
                 reviewText
             });
-            console.log(response);
             return (
                 <div>successfully submitted</div>
             );
